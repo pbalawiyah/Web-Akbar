@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Biodata Diri - M Fari Madyan</title>
+  <meta name="description" content="Biodata diri M Fari Madyan" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow-x: hidden;
+      color: white;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* Background malam */
+    body {
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+    }
+
+    /* Lapisan gelap */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,20,0.6);
+      z-index: 1;
+    }
+
+    /* Efek bintang jatuh */
+    .stars {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 80px;
+      background: linear-gradient(white, rgba(255,255,255,0));
+      opacity: 0.8;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      from { transform: translateY(-100px) translateX(0); opacity: 1; }
+      to { transform: translateY(800px) translateX(300px); opacity: 0; }
+    }
+
+    /* Bulan */
+    .moon {
+      position: fixed;
+      top: 80px;
+      right: 120px;
+      width: 120px;
+      height: 120px;
+      background: radial-gradient(circle at 30% 30%, #fff 70%, #ccc 100%);
+      border-radius: 50%;
+      box-shadow: 0 0 30px 15px rgba(255,255,255,0.3);
+      animation: floatMoon 10s ease-in-out infinite alternate;
+      z-index: 2;
+    }
+
+    @keyframes floatMoon {
+      from { transform: translateY(0px); }
+      to { transform: translateY(-20px); }
+    }
+
+    nav, main, footer {
+      position: relative;
+      z-index: 3;
+    }
+
+    /* Card biodata semi transparan */
+    .card {
+      background: rgba(0,0,0,0.5);
+      border-radius: 2rem;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    }
+
+    table td, table th {
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Overlay dan efek -->
+  <div class="overlay"></div>
+  <div class="stars" id="stars"></div>
+  <div class="moon"></div>
+
+  <!-- Navbar -->
+  <nav class="bg-black/60 backdrop-blur-md shadow-md sticky top-0 text-center py-4">
+    <a href="index.html" class="text-yellow-300 font-semibold mx-6 border-b-2 border-yellow-300">🏠 Beranda</a>
+    <a href="about/index.html" class="text-white hover:text-yellow-300 mx-6 transition">👤 Tentang</a>
+    <a href="contact/index.html" class="text-white hover:text-yellow-300 mx-6 transition">📞 Kontak</a>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="max-w-5xl mx-auto p-8">
+
+    <header class="text-center mb-12">
+      <h1 class="text-5xl font-bold mb-4 text-yellow-300 drop-shadow-lg">Biodata Diri</h1>
+      <p class="text-gray-200 text-lg">Akbar N.a</p>
+    </header>
+
+    <!-- Data Pribadi -->
+    <section class="card">
+      <h2 class="text-3xl font-semibold text-yellow-300 mb-6 text-center">Data Pribadi</h2>
+      <table class="w-full border-collapse text-white">
+        <tbody>
+          <tr>
+            <td class="p-3 font-medium">Nama</td>
+            <td class="p-3">Akbar N.a</td>
+          </tr>
+          <tr>
+            <td class="p-3 font-medium">Tempat, Tanggal Lahir</td>
+            <td class="p-3">Lampung/05/December/2012</td>
+          </tr>
+          <tr>
+            <td class="p-3 font-medium">Jenis Kelamin</td>
+            <td class="p-3">Laki-laki</td>
+          </tr>
+          <tr>
+            <td class="p-3 font-medium">Alamat</td>
+            <td class="p-3">Jl. Matahari</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Hobi -->
+    <section class="card">
+      <h2 class="text-3xl font-semibold text-yellow-300 mb-6 text-center">Hobi</h2>
+      <ul class="space-y-2 text-gray-200 list-disc list-inside">
+        <li>Coding dan Pemrograman</li>
+        <li>Membaca Buku Teknologi</li>
+        <li>Bermain Game</li>
+        <li>Mendengarkan Musik</li>
+      </ul>
+    </section>
+
+    <!-- Cita-cita -->
+    <section class="card">
+      <h2 class="text-3xl font-semibold text-yellow-300 mb-6 text-center">Cita-cita</h2>
+      <p class="text-gray-200 leading-relaxed text-center">
+        Menjadi seorang Software Engineer yang handal dan berkontribusi dalam pengembangan teknologi untuk kemajuan bangsa.
+      </p>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-black/60 backdrop-blur-md text-center py-4 mt-16 text-gray-300">
+    <p>Hak Cipta &copy; 2025 Akbar N.a. Seluruh hak dilindungi.</p>
+  </footer>
+
+  <script>
+    // Buat bintang jatuh
+    const starContainer = document.getElementById("stars");
+    for (let i = 0; i < 30; i++) {
+      const s = document.createElement("div");
+      s.classList.add("star");
+      s.style.left = Math.random() * window.innerWidth + "px";
+      s.style.top = Math.random() * window.innerHeight + "px";
+      s.style.animationDuration = (Math.random() * 4 + 4) + "s";
+      s.style.animationDelay = Math.random() * 5 + "s";
+      starContainer.appendChild(s);
+    }
+  </script>
+
+</body>
+</html>
