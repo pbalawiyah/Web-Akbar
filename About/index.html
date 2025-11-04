@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tentang - Akbar N.A</title>
+  <meta name="description" content="Tentang Akbar N.A, siswa SMP yang passionate dalam teknologi" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow-x: hidden;
+      color: white;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* Background malam */
+    body {
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+    }
+
+    /* Lapisan gelap */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,20,0.6);
+      z-index: 1;
+    }
+
+    /* Efek bintang jatuh */
+    .stars {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 80px;
+      background: linear-gradient(white, rgba(255,255,255,0));
+      opacity: 0.8;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      from { transform: translateY(-100px) translateX(0); opacity: 1; }
+      to { transform: translateY(800px) translateX(300px); opacity: 0; }
+    }
+
+    /* Bulan */
+    .moon {
+      position: fixed;
+      top: 80px;
+      right: 120px;
+      width: 120px;
+      height: 120px;
+      background: radial-gradient(circle at 30% 30%, #fff 70%, #ccc 100%);
+      border-radius: 50%;
+      box-shadow: 0 0 30px 15px rgba(255,255,255,0.3);
+      animation: floatMoon 10s ease-in-out infinite alternate;
+      z-index: 2;
+    }
+
+    @keyframes floatMoon {
+      from { transform: translateY(0px); }
+      to { transform: translateY(-20px); }
+    }
+
+    nav, main, footer {
+      position: relative;
+      z-index: 3;
+    }
+  </style>
+</head>
+<body>
+  <!-- Latar malam -->
+  <div class="overlay"></div>
+  <div class="stars" id="stars"></div>
+  <div class="moon"></div>
+
+  <!-- Navigasi -->
+  <nav class="bg-black/60 backdrop-blur-md shadow-md sticky top-0 text-center py-4">
+    <a href="../index.html" class="text-white hover:text-yellow-300 mx-6 transition">🏠 Beranda</a>
+    <a href="index.html" class="text-yellow-300 font-semibold mx-6 border-b-2 border-yellow-300">👤 Tentang</a>
+    <a href="../contact/index.html" class="text-white hover:text-yellow-300 mx-6 transition">📞 Kontak</a>
+  </nav>
+
+  <!-- Isi utama -->
+  <main class="max-w-5xl mx-auto p-8 text-center">
+    <h1 class="text-5xl font-bold mb-4 text-yellow-300 drop-shadow-lg">Tentang Saya</h1>
+    <p class="text-gray-200 text-lg max-w-2xl mx-auto mb-12 leading-relaxed">
+      Saya <strong>Akbar N.A</strong>, seorang siswa SMP yang penuh semangat dan rasa ingin tahu dalam dunia teknologi 🌙.<br>
+      Saya senang belajar tentang <em>coding, web development</em>, dan ingin menjadi <strong>Software Engineer</strong> yang bisa menciptakan solusi keren bagi banyak orang 💻✨.
+    </p>
+
+    <div class="bg-white/10 rounded-3xl p-8 shadow-lg backdrop-blur-sm mb-12">
+      <h2 class="text-3xl font-semibold text-yellow-300 mb-6">Skill & Minat</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div>
+          <h3 class="text-2xl font-semibold mb-3">🧠 Kemampuan</h3>
+          <ul class="space-y-2 text-gray-200">
+            <li>💻 HTML & CSS</li>
+            <li>⚙️ JavaScript Dasar</li>
+            <li>🎨 UI/UX Design</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-2xl font-semibold mb-3">🎯 Hobi</h3>
+          <ul class="space-y-2 text-gray-200">
+            <li>🎮 Bermain Game</li>
+            <li>📚 Membaca Buku Teknologi</li>
+            <li>🎵 Mendengarkan Musik</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <h2 class="text-3xl font-bold text-yellow-300 mb-4">🌟 Cita-cita</h2>
+      <p class="text-gray-100 text-lg leading-relaxed max-w-2xl mx-auto">
+        Saya bercita-cita menjadi seorang <strong>Software Engineer</strong> yang bisa membuat aplikasi berguna untuk banyak orang.
+        Saya percaya, semangat belajar dan ketekunan bisa membawa kita mencapai bintang-bintang ✨.
+      </p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-black/60 backdrop-blur-md text-center py-4 mt-16 text-gray-300">
+    <p>Hak Cipta © 2025 Akbar N.A. Seluruh hak dilindungi.</p>
+  </footer>
+
+  <script>
+    // Buat bintang jatuh
+    const starContainer = document.getElementById("stars");
+    for (let i = 0; i < 30; i++) {
+      const s = document.createElement("div");
+      s.classList.add("star");
+      s.style.left = Math.random() * window.innerWidth + "px";
+      s.style.top = Math.random() * window.innerHeight + "px";
+      s.style.animationDuration = (Math.random() * 4 + 4) + "s";
+      s.style.animationDelay = Math.random() * 5 + "s";
+      starContainer.appendChild(s);
+    }
+  </script>
+</body>
+</html>
