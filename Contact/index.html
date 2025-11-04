@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kontak - Akbar N.A</title>
+  <meta name="description" content="Hubungi Akbar N.A melalui formulir kontak atau media sosial" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow-x: hidden;
+      color: white;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* Background malam */
+    body {
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+    }
+
+    /* Lapisan gelap */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,20,0.6);
+      z-index: 1;
+    }
+
+    /* Efek bintang jatuh */
+    .stars {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 80px;
+      background: linear-gradient(white, rgba(255,255,255,0));
+      opacity: 0.8;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      from { transform: translateY(-100px) translateX(0); opacity: 1; }
+      to { transform: translateY(800px) translateX(300px); opacity: 0; }
+    }
+
+    /* Bulan */
+    .moon {
+      position: fixed;
+      top: 80px;
+      right: 120px;
+      width: 120px;
+      height: 120px;
+      background: radial-gradient(circle at 30% 30%, #fff 70%, #ccc 100%);
+      border-radius: 50%;
+      box-shadow: 0 0 30px 15px rgba(255,255,255,0.3);
+      animation: floatMoon 10s ease-in-out infinite alternate;
+      z-index: 2;
+    }
+
+    @keyframes floatMoon {
+      from { transform: translateY(0px); }
+      to { transform: translateY(-20px); }
+    }
+
+    nav, main, footer {
+      position: relative;
+      z-index: 3;
+    }
+
+    /* Card form */
+    .card {
+      background: rgba(0,0,0,0.5);
+      border-radius: 2rem;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border-radius: 0.5rem;
+      border: none;
+      margin-top: 0.5rem;
+      background: rgba(255,255,255,0.1);
+      color: white;
+    }
+
+    input::placeholder, textarea::placeholder {
+      color: rgba(255,255,255,0.7);
+    }
+
+    input[type="submit"] {
+      background: #facc15; /* kuning */
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    input[type="submit"]:hover {
+      background: #eab308;
+    }
+
+    label {
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Overlay dan efek -->
+  <div class="overlay"></div>
+  <div class="stars" id="stars"></div>
+  <div class="moon"></div>
+
+  <!-- Navbar -->
+  <nav class="bg-black/60 backdrop-blur-md shadow-md sticky top-0 text-center py-4">
+    <a href="../index.html" class="text-white hover:text-yellow-300 mx-6 transition">🏠 Beranda</a>
+    <a href="../about/index.html" class="text-white hover:text-yellow-300 mx-6 transition">👤 Tentang</a>
+    <a href="index.html" class="text-yellow-300 font-semibold mx-6 border-b-2 border-yellow-300">📞 Kontak</a>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="max-w-3xl mx-auto p-8">
+
+    <header class="text-center mb-8">
+      <h1 class="text-5xl font-bold mb-4 text-yellow-300 drop-shadow-lg">Kontak Saya</h1>
+      <p class="text-gray-200 text-lg">Hubungi Akbar N.A melalui media sosial atau formulir di bawah ini</p>
+    </header>
+
+    <!-- Media Sosial -->
+    <section class="card mb-8">
+      <h2 class="text-3xl font-semibold text-yellow-300 mb-4 text-center">Media Sosial</h2>
+      <ul class="text-gray-200 space-y-2 text-center">
+        <li><a href="https://t.me/username" class="hover:text-yellow-300 transition">@AkbarNA</a></li>
+        <li><a href="mailto:akbar@example.com" class="hover:text-yellow-300 transition">akbar@example.com</a></li>
+        <li><a href="tel:+6281234567890" class="hover:text-yellow-300 transition">+62 812 3456 7890</a></li>
+      </ul>
+    </section>
+
+    <!-- Form Kontak -->
+    <section class="card">
+      <h2 class="text-3xl font-semibold text-yellow-300 mb-6 text-center">Kirim Pesan</h2>
+      <form id="contact-form">
+        <fieldset class="mb-4">
+          <legend class="text-lg font-semibold text-gray-200">Info Anda</legend>
+          <div class="mb-3">
+            <label for="person-name">Nama:</label>
+            <input type="text" name="person-name" id="person-name" placeholder="Elon Musk" required />
+          </div>
+          <div>
+            <label for="person-email">Email:</label>
+            <input type="email" name="person-email" id="person-email" placeholder="elon@spacex.com" required />
+          </div>
+        </fieldset>
+
+        <fieldset class="mb-4">
+          <legend class="text-lg font-semibold text-gray-200">Pertanyaan Anda</legend>
+          <div class="mb-3">
+            <label for="message-subject">Subjek:</label>
+            <input type="text" name="message-subject" id="message-subject" placeholder="Judul subjek" required />
+          </div>
+          <div>
+            <label for="message-content">Pesan:</label>
+            <textarea name="message-content" id="message-content" cols="30" rows="6" placeholder="Masukkan pesan Anda di sini..." required></textarea>
+          </div>
+        </fieldset>
+
+        <input type="submit" value="Kirim Pesan" />
+      </form>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-black/60 backdrop-blur-md text-center py-4 mt-16 text-gray-300">
+    <p>Hak Cipta &copy; 2025 Akbar N.A. Seluruh hak dilindungi.</p>
+  </footer>
+
+  <script>
+    // Buat bintang jatuh
+    const starContainer = document.getElementById("stars");
+    for (let i = 0; i < 30; i++) {
+      const s = document.createElement("div");
+      s.classList.add("star");
+      s.style.left = Math.random() * window.innerWidth + "px";
+      s.style.top = Math.random() * window.innerHeight + "px";
+      s.style.animationDuration = (Math.random() * 4 + 4) + "s";
+      s.style.animationDelay = Math.random() * 5 + "s";
+      starContainer.appendChild(s);
+    }
+  </script>
+
+</body>
+</html>
+</html>
